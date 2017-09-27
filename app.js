@@ -1,5 +1,6 @@
-var express = require('express');
 require('dotenv').config();
+var express = require('express');
 var app = express();
+var db = require('./db');
 
 module.exports = app;
