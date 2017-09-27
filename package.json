@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-api",
+  "version": "1.0.0",
+  "description": "simple key-value api store",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "martin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "mongoose": "^4.11.13"
+  }
+}
