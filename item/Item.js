@@ -4,7 +4,7 @@ var ItemSchema = new mongoose.Schema({
 	value: String,
 	timestamp: {
 		type: Date,
-		default: Date.now
+		default: Date.now()
 	}
 });
 
