@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var ObjectSchema = new Schema({
+var ItemSchema = new mongoose.Schema({
 	key: String,
 	value: String,
 	timestamp: {
@@ -9,4 +8,5 @@ var ObjectSchema = new Schema({
 	}
 });
 
-module.exports = mongoose.model('Objects', ObjectSchema);
+mongoose.model('Item', ItemSchema);
+module.exports = mongoose.model('Item');
