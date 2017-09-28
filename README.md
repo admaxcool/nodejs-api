@@ -17,11 +17,12 @@ https://nodejs-api-myce.herokuapp.com/items
 
 #### POST an item
 `https://nodejs-api-myce.herokuapp.com/items`
-```body:
+body:
+```
 {
   key: 'your key',
   value: 'your value',
-  timestamp: 'epoch time in second'
+  timestamp: default to current time in epoch seconds format
 }
 ```
 
