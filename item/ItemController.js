@@ -8,12 +8,17 @@ module.exports = router;
 
 // Create an item or update existing item
 router.post('/', (req, res) => {
-	Item.create({
-		key: req.body.key,
-		value: req.body.value
-	},
-	(err, item) => {
-		if (err) return res.status(500).send("error");
+	var query = { 'key': req.body.key };
+	var update = {
+		value: req.body.value,
+		timestamp: Math.floor(Date.now() / 1000)
+	};
+	var options = {
+		upsert: true,
+		new: true
+	}
+	Item.findOneAndUpdate(query, update, options, (err, item) => {
+		if (err) return res.status(500).send('error');
 		res.status(200).send(item);
 	});
 });
@@ -34,7 +39,9 @@ router.get('/:key', (req, res) => {
 			if (item.length === 0) return res.status(404).send('not found');
 			res.status(200).send('value: ' + item[0].value)
 		});
-	} else {
+	}
+	// Get the latest value accroding to key when no timestamp query string is given
+	else {
 		Item.find({ 'key': req.params.key }).
 		sort({ 'timestamp': -1 }).
 		exec((err, item) => {
