@@ -3,8 +3,8 @@ var ItemSchema = new mongoose.Schema({
 	key: String,
 	value: String,
 	timestamp: {
-		type: Date,
-		default: Date.now()
+		type: Number,
+		default: Math.floor(Date.now() / 1000)
 	}
 });
 
