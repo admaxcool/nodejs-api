@@ -22,8 +22,7 @@ body:
 ```
 {
   key: 'your key',
-  value: 'your value',
-  timestamp: default to current time in epoch seconds format
+  value: 'your value'
 }
 ```
 
@@ -31,23 +30,29 @@ body:
 `https://nodejs-api-myce.herokuapp.com/[key]`
 
 #### GET an item by [key] and timestamp query string
-`https://nodejs-api-myce.herokuapp.com/[key]?timestamp=[epoch time in second]`
+`https://nodejs-api-myce.herokuapp.com/[key]?timestamp=[epoch_time_in_second]`
 
 ## Developers Guide
 `npm version: 5.4.2`
 
 `node version: 8.5.0`
 
+`mongodb: mlab` at https://mlab.com
+
 #### Getting Started
-1. Create mlab database at https://mlab.com/
-2. Create a `user` and `password` for the database
-3. Create a `.env` file in root project folder
-4. Add the following credential into the `.env` file
+1. Create mongodb database
+2. Create a `.env` file in root project folder
+3. Add the following credential to the `.env` file
 
-DBUSER=[YOUR_DB_USERNAME]
+DB_URL=[YOUR_DB_URL]
 
-DBPASSWORD=[YOUR_DB_PASSWORD]
+DB_TEST_URL=[YOUR_TEST_DB_URL]
 
-5. Run `npm install`
+4. Run `npm install`
 
-6. Run `npm start`
+5. Run `npm start`
+
+#### Test
+Test framework: `mocha, chai, chai-http`
+
+1. Run `npm test`
